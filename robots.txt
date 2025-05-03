@@ -2,4 +2,4 @@ User-agent: *
 Disallow:
 
 # Allow all search engines to index the site
-Sitemap: https://yourwebsite.com/sitemap.xml
+Sitemap: https://aurcin.github.io/drawing-exercises/sitemap.xml
