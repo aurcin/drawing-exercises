@@ -1,0 +1,133 @@
+{
+  "schedule_1": {
+    "id": "schedule_1",
+    "name": "Schedule 1",
+    "exercises": [
+      {
+        "id": "s1e1",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e2",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e3",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e4",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e5",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e6",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e7",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e8",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e9",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e10",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e11",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e12",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e13",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e14",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e15",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e16",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e17",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e18",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e19",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e20",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e21",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e22",
+        "exercise": "exercise_3",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e23",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e24",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s1e25",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      }
+    ]
+  }
+}
