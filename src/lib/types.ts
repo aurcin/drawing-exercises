@@ -54,5 +54,6 @@ export type SchedulesStoreState = {
   schedules: SchedulesData;
 
   markExerciseAsCompleted: (scheduleId: string, exerciseId: string) => void;
+  toggleExerciseStatus: (scheduleId: string, exerciseId: string) => void;
   resetSchedules: () => void;
 };

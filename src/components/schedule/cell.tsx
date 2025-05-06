@@ -1,4 +1,3 @@
-import { Check } from 'lucide-react';
 import { Link, useParams } from 'react-router';
 
 import { PATHS } from '@/routes/paths';
@@ -7,6 +6,8 @@ import { useExercisesStore } from '@/store/exercises';
 
 import { cn } from '@/lib/utils';
 import type { ScheduleExerciseCell } from '@/lib/types';
+import ClickableStatusButton from '../ui/clickable-status-button';
+import { useScheduleStore } from '@/store/schedules';
 
 interface ScheduleCellProps {
   exercise: ScheduleExerciseCell;
@@ -18,6 +19,7 @@ function ScheduleCell(props: ScheduleCellProps) {
   let { id } = useParams();
 
   const { exercises } = useExercisesStore();
+  const { toggleExerciseStatus } = useScheduleStore();
 
   const currentExercise = exercises[exercise];
 
@@ -49,9 +51,11 @@ function ScheduleCell(props: ScheduleCellProps) {
           </span>
         </div>
       </div>
-      {isCompleted && (
-        <Check className='stroke-primary size-8 absolute top-2 right-2' />
-      )}
+      <ClickableStatusButton
+        onClick={() => toggleExerciseStatus(id as string, props.exercise.id)}
+        status={isCompleted ? 'completed' : 'not-completed'}
+        className='absolute top-2 right-2'
+      />
     </div>
   );
 }

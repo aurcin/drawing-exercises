@@ -39,6 +39,24 @@ export const useScheduleStore = create<SchedulesStoreState>()(set => {
       });
     },
 
+    toggleExerciseStatus: (scheduleId: string, exerciseId: string) => {
+      set(state => {
+        const updatedSchedules = { ...state.schedules };
+        const schedule = updatedSchedules[scheduleId];
+        const exercise = schedule.exercises.find(
+          (exercise: { id: string }) => exercise.id === exerciseId
+        );
+
+        if (!exercise) {
+          return { ...state };
+        }
+
+        exercise.isCompleted = !exercise.isCompleted;
+        localStorage.setItem(SCHEDULES_KEY, JSON.stringify(updatedSchedules));
+        return { ...state, schedules: updatedSchedules };
+      });
+    },
+
     resetSchedules: () => {
       const schedules = deepClone(data);
       localStorage.setItem(SCHEDULES_KEY, JSON.stringify(schedules));
