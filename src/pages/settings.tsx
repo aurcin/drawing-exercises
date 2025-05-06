@@ -8,11 +8,11 @@ import { useScheduleStore } from '@/store/schedules';
 
 function SettingsPage() {
   const { resetExercises } = useExercisesStore();
-  const { resetSchedules } = useScheduleStore();
+  const { resetAllSchedules } = useScheduleStore();
 
   function handleReset() {
     resetExercises();
-    resetSchedules();
+    resetAllSchedules();
   }
 
   return (

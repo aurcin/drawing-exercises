@@ -5,7 +5,7 @@ import { SCHEDULES_KEY } from '@/lib/constants';
 import { deepClone } from '@/lib/utils';
 import type { SchedulesStoreState, SchedulesData } from '@/lib/types';
 
-export const useScheduleStore = create<SchedulesStoreState>()(set => {
+export const useScheduleStore = create<SchedulesStoreState>()((set, get) => {
   const storedSchedules = localStorage.getItem(SCHEDULES_KEY);
 
   let schedules: SchedulesData = {};
@@ -57,7 +57,69 @@ export const useScheduleStore = create<SchedulesStoreState>()(set => {
       });
     },
 
-    resetSchedules: () => {
+    completeSheduleById: (scheduleId: string) => {
+      set(state => {
+        const updatedSchedules = { ...state.schedules };
+        const schedule = updatedSchedules[scheduleId];
+        if (!schedule) {
+          return { ...state };
+        }
+
+        const exercises = schedule.exercises.map(exercise => {
+          return { ...exercise, isCompleted: true };
+        });
+
+        schedule.exercises = exercises;
+
+        localStorage.setItem(SCHEDULES_KEY, JSON.stringify(updatedSchedules));
+        return { ...state, schedules: updatedSchedules };
+      });
+    },
+
+    resetSheduleById: (scheduleId: string) => {
+      set(state => {
+        const updatedSchedules = { ...state.schedules };
+        const schedule = updatedSchedules[scheduleId];
+        if (!schedule) {
+          return { ...state };
+        }
+
+        const exercises = schedule.exercises.map(exercise => {
+          return { ...exercise, isCompleted: false };
+        });
+
+        schedule.exercises = exercises;
+
+        localStorage.setItem(SCHEDULES_KEY, JSON.stringify(updatedSchedules));
+        return { ...state, schedules: updatedSchedules };
+      });
+    },
+
+    getScheduleStatus: (scheduleId: string) => {
+      const schedule = get().schedules[scheduleId];
+
+      if (!schedule) {
+        return 'not-started';
+      }
+
+      const allCompleted = schedule.exercises.every(
+        exercise => exercise.isCompleted
+      );
+      if (allCompleted) {
+        return 'completed';
+      }
+
+      const noneCompleted = schedule.exercises.every(
+        exercise => !exercise.isCompleted
+      );
+      if (noneCompleted) {
+        return 'not-started';
+      }
+
+      return 'in-progress';
+    },
+
+    resetAllSchedules: () => {
       const schedules = deepClone(data);
       localStorage.setItem(SCHEDULES_KEY, JSON.stringify(schedules));
       set({ schedules });
