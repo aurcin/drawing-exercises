@@ -3,7 +3,7 @@
     "id": "exercise_1",
     "title": "Ex. 1: Contour",
     "description": "In this exercise, you will train your eyes, hand, and mind to work together by practicing pure observation. Without looking at your paper at all, place your pencil where you want to begin. Then, very slowly move your eyes along the edges (contours) of the subject while simultaneously moving your hand across the paper, trying to match the speed of your eye with the movement of your pencil. Try not lift your pencil from the paper until you have completed the drawing. It is important that you do not worry about how the drawing looks, the purpose is not to create a beautiful image but to strengthen the connection between your eye and hand and to truly experience the form you are observing.",
-    "time": 900,
+    "time": 600,
     "images_per_exercise": 1,
     "images": [
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/1.jpg",
@@ -31,8 +31,8 @@
     "id": "exercise_2",
     "title": "Ex. 2: Gesture",
     "description": "to do",
-    "time": 1800,
-    "images_per_exercise": 25,
+    "time": 900,
+    "images_per_exercise": 10,
     "images": ["https://example.com/image1.jpg"],
     "examples": []
   },
