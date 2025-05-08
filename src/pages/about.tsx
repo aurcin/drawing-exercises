@@ -1,7 +1,21 @@
-import { PATHS } from '@/routes/paths';
 import { Link } from 'react-router';
+import { RotateCcw } from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
+
+import { PATHS } from '@/routes/paths';
+
+import { useExercisesStore } from '@/store/exercises';
+import { useScheduleStore } from '@/store/schedules';
 
 function AboutPage() {
+  const { resetExercises } = useExercisesStore();
+  const { resetAllSchedules } = useScheduleStore();
+
+  function handleReset() {
+    resetExercises();
+    resetAllSchedules();
+  }
   return (
     <section className='container max-w-[800px] space-y-4'>
       <h1 className='text-2xl'>About</h1>
@@ -45,6 +59,32 @@ function AboutPage() {
         </Link>
         —I may even add a gallery in the future.
       </p>
+
+      <h2 className='text-2xl mt-12'>Updates</h2>
+
+      <h3 className=' text-foreground/60 flex justify-between'>
+        <i>2025.05.08</i>
+        <span className='text-sm'>v 0.2</span>
+      </h3>
+      <ul className='list-disc list-inside space-y-2'>
+        <li>Added the ability to manage exercise and schedule progress</li>
+        <li>
+          Implemented Exercise 2.{' '}
+          <div>
+            (if you alredy used this app and loaded previous exercise data, you
+            need to{' '}
+            <Button
+              size='sm'
+              variant='destructive'
+              onClick={handleReset}
+              title='Reset all progress and data to default'>
+              <RotateCcw className='bg-transparent stroke-white' />
+              Reset
+            </Button>{' '}
+            data to see updated exercises)
+          </div>
+        </li>
+      </ul>
     </section>
   );
 }

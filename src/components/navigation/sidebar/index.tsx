@@ -13,6 +13,8 @@ import Exercises from '@/components/navigation/sidebar/exercises';
 import ThemeToggle from '@/components/navigation/theme-toggle';
 import { Button } from '@/components/ui/button';
 
+import { CURRENT_VERSION } from '@/lib/constants';
+
 import { PATHS } from '@/routes/paths';
 
 function AppSidebar() {
@@ -29,7 +31,9 @@ function AppSidebar() {
         </Collapsible>
       </SidebarContent>
       <SidebarFooter>
-        <div className='text-right text-sm text-neutral-500'>v 0.1</div>
+        <div className='text-right text-sm text-neutral-500'>
+          {CURRENT_VERSION}
+        </div>
         <div className='py-2 flex gap-2 justify-end'>
           <ThemeToggle />
           <Button
