@@ -1,14 +1,15 @@
 import { useParams } from 'react-router';
 import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import FormField from '@/components/form/field';
+import { Button } from '@/components/ui/button';
 
 import NotFound from '@/pages/not-found';
 
 import { useExercisesStore } from '@/store/exercises';
 
-import type { Exercise } from '@/lib/types';
-import { Button } from '@/components/ui/button';
+import { ExerciseSchema, type ExerciseFormData } from '@/lib/types';
 
 function EditExercisePage() {
   const { id } = useParams();
@@ -23,10 +24,11 @@ function EditExercisePage() {
     register,
     handleSubmit,
     formState: { errors },
-    setError,
-  } = useForm<Exercise>();
+  } = useForm<ExerciseFormData>({
+    resolver: zodResolver(ExerciseSchema),
+  });
 
-  const onSubmit = async (data: Exercise) => {
+  const onSubmit = async (data: ExerciseFormData) => {
     console.log('SUCCESS', data);
   };
 
@@ -44,6 +46,7 @@ function EditExercisePage() {
           name='title'
           register={register}
           error={errors.title}
+          defaultValue={exercise?.title}
         />
 
         <FormField
@@ -54,6 +57,7 @@ function EditExercisePage() {
           name='description'
           register={register}
           error={errors.description}
+          defaultValue={exercise?.description}
         />
 
         <div className='mt-6 flex gap-2'>
@@ -66,6 +70,7 @@ function EditExercisePage() {
             valueAsNumber
             register={register}
             error={errors.time}
+            defaultValue={exercise?.time}
           />
           <FormField
             className='grow'
@@ -76,6 +81,7 @@ function EditExercisePage() {
             valueAsNumber
             register={register}
             error={errors.images_per_exercise}
+            defaultValue={exercise?.images_per_exercise}
           />
         </div>
         <Button type='submit' className='mt-6 w-full md:w-fit'>

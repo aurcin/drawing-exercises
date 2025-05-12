@@ -8,6 +8,8 @@ export type Exercise = {
   examples: string[];
 };
 
+export type ExerciseFormData = Omit<Exercise, 'id'>;
+
 export type ExerciseState = 'description' | 'preview';
 
 export type ExerciseImageState = {

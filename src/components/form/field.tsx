@@ -15,6 +15,7 @@ function FormField(props: FormFieldProps) {
     error,
     label,
     className = '',
+    defaultValue,
   } = props;
 
   return (
@@ -22,6 +23,7 @@ function FormField(props: FormFieldProps) {
       <label htmlFor={name}>{label}</label>
       {type !== 'textarea' ? (
         <Input
+          defaultValue={defaultValue}
           className={cn('mt-2', { 'border-red-500': error })}
           type={type}
           id={name}
@@ -30,6 +32,7 @@ function FormField(props: FormFieldProps) {
         />
       ) : (
         <Textarea
+          defaultValue={defaultValue}
           className={cn('mt-2', { 'border-red-500': error })}
           id={name}
           placeholder={placeholder}
