@@ -1,25 +1,33 @@
-import { useParams, useSearchParams } from 'react-router';
-
-import useExercise from '@/hooks/use-exercise';
+import { Link, useParams, useSearchParams } from 'react-router';
+import { SquarePen } from 'lucide-react';
 
 import Description from '@/components/exercise/description';
 import Preview from '@/components/exercise/preview';
 import ExerciseNavigation from '@/components/exercise/navigation';
 import Controls from '@/components/exercise/controls';
+import { Button } from '@/components/ui/button';
+
+import useExercise from '@/hooks/use-exercise';
 
 import NotFound from '@/pages/not-found';
 
 import { useExercisesStore } from '@/store/exercises';
 
+import { PATHS } from '@/routes/paths';
+
 function ExercisePage() {
   const { id } = useParams();
   const [searchParams] = useSearchParams();
+  const { getExerciseById } = useExercisesStore();
+
+  if (!id) {
+    return <NotFound title='Exercise not found' />;
+  }
 
   const scheduleId = searchParams.get('scheduleId') || null;
   const exerciseId = searchParams.get('exerciseId') || null;
 
-  const { exercises } = useExercisesStore();
-  const exercise = exercises[id as string];
+  const exercise = getExerciseById(id);
   if (!exercise) {
     return <NotFound title='Exercise not found' />;
   }
@@ -39,7 +47,16 @@ function ExercisePage() {
 
   return (
     <section className='max-w-[700px]'>
-      <h1 className='text-2xl'>{title}</h1>
+      <div className='flex items-center gap-4'>
+        <h1 className='text-2xl'>{title}</h1>
+        {id && (
+          <Button variant='outline' asChild size='sm'>
+            <Link to={PATHS.EDIT_EXERCISE(id)} title={`edit exercise ${title}`}>
+              <SquarePen />
+            </Link>
+          </Button>
+        )}
+      </div>
 
       <ExerciseNavigation state={state} onStart={startExercise}>
         <Controls

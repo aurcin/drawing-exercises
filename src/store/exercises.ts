@@ -20,6 +20,15 @@ export const useExercisesStore = create<ExercisesStoreState>()(set => {
   return {
     exercises,
 
+    getExerciseById: (id: string) => {
+      const exercise = exercises[id];
+      if (!exercise) {
+        return null;
+      }
+
+      return exercise;
+    },
+
     getNextImage: (id: string) => {
       let pulledImage: string | null = null;
 

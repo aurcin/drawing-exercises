@@ -6,6 +6,7 @@ import AboutPage from '@/pages/about';
 import SettingsPage from '@/pages/settings';
 import SchedulePage from '@/pages/schedule';
 import ExercisePage from '@/pages/exercise';
+import EditExercisePage from '@/pages/exercise/edit';
 
 import { PATHS } from '@/routes/paths';
 
@@ -19,6 +20,7 @@ function PageRoutes() {
         <Route path={PATHS.SETTINGS} element={<SettingsPage />} />
         <Route path={PATHS.SCHEDULES} element={<SchedulePage />} />
         <Route path={PATHS.EXERCISES} element={<ExercisePage />} />
+        <Route path={PATHS.EDIT_EXERCISES} element={<EditExercisePage />} />
         <Route path='*' element={<NotFound />} />
       </Route>
     </Routes>
