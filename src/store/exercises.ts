@@ -29,6 +29,14 @@ export const useExercisesStore = create<ExercisesStoreState>()(set => {
       return exercise;
     },
 
+    updateExercise: (id: string, exercise: ExercisesData[string]) => {
+      set(state => {
+        const updatedExercises = { ...state.exercises, [id]: exercise };
+        localStorage.setItem(EXERCISES_KEY, JSON.stringify(updatedExercises));
+        return { ...state, exercises: updatedExercises };
+      });
+    },
+
     getNextImage: (id: string) => {
       let pulledImage: string | null = null;
 

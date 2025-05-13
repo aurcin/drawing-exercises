@@ -16,6 +16,7 @@ function FormField(props: FormFieldProps) {
     label,
     className = '',
     defaultValue,
+    description,
   } = props;
 
   return (
@@ -41,6 +42,9 @@ function FormField(props: FormFieldProps) {
       )}
       {error && (
         <span className='text-red-500 dark:text-red-400'>{error.message}</span>
+      )}
+      {description && (
+        <p className='text-sm mt-2 text-muted-foreground'>{description}</p>
       )}
     </div>
   );

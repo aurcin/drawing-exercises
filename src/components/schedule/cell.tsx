@@ -46,7 +46,10 @@ function ScheduleCell(props: ScheduleCellProps) {
         <div>
           {currentExercise.images_per_exercise} img{' '}
           <span className='text-muted-foreground text-sm'>
-            ({currentExercise.time / 60}
+            (
+            {Math.floor(currentExercise.time / 60) === currentExercise.time / 60
+              ? currentExercise.time / 60
+              : (currentExercise.time / 60).toFixed(2)}
             min)
           </span>
         </div>

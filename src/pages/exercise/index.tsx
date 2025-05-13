@@ -18,7 +18,6 @@ import { PATHS } from '@/routes/paths';
 function ExercisePage() {
   const { id } = useParams();
   const [searchParams] = useSearchParams();
-  const { getExerciseById } = useExercisesStore();
 
   if (!id) {
     return <NotFound title='Exercise not found' />;
@@ -27,7 +26,7 @@ function ExercisePage() {
   const scheduleId = searchParams.get('scheduleId') || null;
   const exerciseId = searchParams.get('exerciseId') || null;
 
-  const exercise = getExerciseById(id);
+  const exercise = useExercisesStore().exercises[id];
   if (!exercise) {
     return <NotFound title='Exercise not found' />;
   }
@@ -49,7 +48,7 @@ function ExercisePage() {
     <section className='max-w-[700px]'>
       <div className='flex items-center gap-4'>
         <h1 className='text-2xl'>{title}</h1>
-        {id && (
+        {state === 'description' && id && (
           <Button variant='outline' asChild size='sm'>
             <Link to={PATHS.EDIT_EXERCISE(id)} title={`edit exercise ${title}`}>
               <SquarePen />

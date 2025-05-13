@@ -24,6 +24,7 @@ export type ExercisesStoreState = {
   exercises: ExercisesData;
 
   getExerciseById: (id: string) => Exercise | null;
+  updateExercise: (id: string, exercise: Exercise) => void;
 
   getNextImage: (id: string) => string | null;
   resetExercises: () => void;

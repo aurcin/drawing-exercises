@@ -21,6 +21,7 @@ export type FormFieldProps = {
   valueAsNumber?: boolean;
   className?: string;
   defaultValue?: string | number;
+  description?: string;
 };
 
 export const ExerciseSchema: ZodType<ExerciseFormData> = z.object({
@@ -29,6 +30,37 @@ export const ExerciseSchema: ZodType<ExerciseFormData> = z.object({
   description: z.string().min(1, {
     message: 'Description is required',
   }),
+
+  examples: z
+    .string()
+    .optional()
+    .transform(
+      value =>
+        value
+          ?.split(/[\s,]+/)
+          .map(url => url.trim())
+          .filter(Boolean) || []
+    )
+    .refine(
+      urls => urls.every(url => z.string().url().safeParse(url).success),
+      { message: 'Each example must be a valid URL' }
+    ),
+
+  images: z
+    .string()
+    .transform(
+      value =>
+        value
+          ?.split(/[\s,]+/)
+          .map(url => url.trim())
+          .filter(Boolean) || []
+    )
+    .refine(
+      urls =>
+        urls.length > 0 &&
+        urls.every(url => z.string().url().safeParse(url).success),
+      { message: 'Each example must be a valid URL' }
+    ),
 
   time: z
     .number({
