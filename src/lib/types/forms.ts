@@ -1,4 +1,4 @@
-import { z, ZodType } from 'zod';
+import { z } from 'zod';
 import { FieldError, UseFormRegister } from 'react-hook-form';
 
 import type { ExerciseFormData } from '@/lib/types/exercises';
@@ -24,7 +24,7 @@ export type FormFieldProps = {
   description?: string;
 };
 
-export const ExerciseSchema: ZodType<ExerciseFormData> = z.object({
+export const ExerciseSchema: any = z.object({
   title: z.string().min(1, { message: 'Title is required' }),
 
   description: z.string().min(1, {
