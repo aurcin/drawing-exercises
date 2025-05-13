@@ -1,11 +1,9 @@
-import { Link, useParams, useSearchParams } from 'react-router';
-import { SquarePen } from 'lucide-react';
+import { useParams, useSearchParams } from 'react-router';
 
 import Description from '@/components/exercise/description';
 import Preview from '@/components/exercise/preview';
 import ExerciseNavigation from '@/components/exercise/navigation';
 import Controls from '@/components/exercise/controls';
-import { Button } from '@/components/ui/button';
 
 import useExercise from '@/hooks/use-exercise';
 
@@ -13,7 +11,7 @@ import NotFound from '@/pages/not-found';
 
 import { useExercisesStore } from '@/store/exercises';
 
-import { PATHS } from '@/routes/paths';
+import ManageExerciseButtons from '@/components/exercise/manage-buttons';
 
 function ExercisePage() {
   const { id } = useParams();
@@ -49,11 +47,7 @@ function ExercisePage() {
       <div className='flex items-center gap-4'>
         <h1 className='text-2xl'>{title}</h1>
         {state === 'description' && id && (
-          <Button variant='outline' asChild size='sm'>
-            <Link to={PATHS.EDIT_EXERCISE(id)} title={`edit exercise ${title}`}>
-              <SquarePen />
-            </Link>
-          </Button>
+          <ManageExerciseButtons title={title} id={id} />
         )}
       </div>
 

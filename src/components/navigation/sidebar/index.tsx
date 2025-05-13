@@ -13,15 +13,18 @@ import Exercises from '@/components/navigation/sidebar/exercises';
 import ThemeToggle from '@/components/navigation/theme-toggle';
 import { Button } from '@/components/ui/button';
 
+import { useThemeStore } from '@/store/theme';
+
 import { CURRENT_VERSION } from '@/lib/constants';
 
 import { PATHS } from '@/routes/paths';
 
 function AppSidebar() {
+  const { theme } = useThemeStore();
   return (
     <Sidebar collapsible='offcanvas'>
-      <SidebarHeader />
-      <SidebarContent>
+      <SidebarHeader className={theme} />
+      <SidebarContent className={theme}>
         <Collapsible className='group/collapsible'>
           <Schedules />
         </Collapsible>
@@ -30,7 +33,7 @@ function AppSidebar() {
           <Exercises />
         </Collapsible>
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className={theme}>
         <div className='text-right text-sm text-neutral-500'>
           {CURRENT_VERSION}
         </div>

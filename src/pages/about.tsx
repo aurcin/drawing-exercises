@@ -63,6 +63,14 @@ function AboutPage() {
       <h2 className='text-2xl mt-12'>Updates</h2>
 
       <h3 className=' text-foreground/60 flex justify-between'>
+        <i>2025.05.x</i>
+        <span className='text-sm'>v 0.2.1</span>
+      </h3>
+      <ul className='list-disc list-inside space-y-2'>
+        <li>Fixed dark theme colors on mobile sidebar</li>
+      </ul>
+
+      <h3 className=' text-foreground/60 flex justify-between'>
         <i>2025.05.08</i>
         <span className='text-sm'>v 0.2</span>
       </h3>
