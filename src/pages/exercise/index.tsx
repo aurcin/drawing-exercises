@@ -11,8 +11,6 @@ import NotFound from '@/pages/not-found';
 
 import { useExercisesStore } from '@/store/exercises';
 
-import ManageExerciseButtons from '@/components/exercise/manage-buttons';
-
 function ExercisePage() {
   const { id } = useParams();
   const [searchParams] = useSearchParams();
@@ -46,9 +44,6 @@ function ExercisePage() {
     <section className='max-w-[700px]'>
       <div className='flex items-center gap-4'>
         <h1 className='text-2xl'>{title}</h1>
-        {state === 'description' && id && (
-          <ManageExerciseButtons title={title} id={id} />
-        )}
       </div>
 
       <ExerciseNavigation state={state} onStart={startExercise}>
