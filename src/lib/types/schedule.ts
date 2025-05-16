@@ -23,5 +23,7 @@ export type SchedulesStoreState = {
   completeSheduleById: (scheduleId: string) => void;
   resetSheduleById: (scheduleId: string) => void;
 
+  removeExerciseFromAllSchedules: (exerciseId: string) => void;
+
   resetAllSchedules: () => void;
 };

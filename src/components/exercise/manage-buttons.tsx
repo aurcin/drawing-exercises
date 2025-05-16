@@ -13,9 +13,9 @@ import {
   DialogClose,
 } from '@/components/ui/dialog';
 
-import { useThemeStore } from '@/store/theme';
-
 import { PATHS } from '@/routes/paths';
+
+import { useThemeStore } from '@/store/theme';
 
 interface ManageExerciseButtonsProps {
   title: string;
@@ -56,13 +56,8 @@ function ManageExerciseButtons(props: ManageExerciseButtonsProps) {
           </DialogDescription>
           <DialogFooter className='sm:justify-start'>
             <DialogClose asChild>
-              <Button
-                type='submit'
-                variant='destructive'
-                onClick={() => {
-                  console.log('delete', id);
-                }}>
-                Yes, Delete it
+              <Button asChild type='submit' variant='destructive'>
+                <Link to={PATHS.DELETE_EXERCISE(id)}>Yes, Delete it</Link>
               </Button>
             </DialogClose>
           </DialogFooter>

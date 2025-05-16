@@ -119,6 +119,22 @@ export const useScheduleStore = create<SchedulesStoreState>()((set, get) => {
       return 'in-progress';
     },
 
+    removeExerciseFromAllSchedules: (exerciseId: string) => {
+      set(state => {
+        const updatedSchedules = { ...state.schedules };
+
+        Object.keys(updatedSchedules).forEach(scheduleId => {
+          const schedule = updatedSchedules[scheduleId];
+          schedule.exercises = schedule.exercises.filter(
+            exercise => exercise.exercise !== exerciseId
+          );
+        });
+
+        localStorage.setItem(SCHEDULES_KEY, JSON.stringify(updatedSchedules));
+        return { ...state, schedules: updatedSchedules };
+      });
+    },
+
     resetAllSchedules: () => {
       const schedules = deepClone(data);
       localStorage.setItem(SCHEDULES_KEY, JSON.stringify(schedules));
