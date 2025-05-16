@@ -1,5 +1,6 @@
-import { Link } from 'react-router';
+import { Link, useMatch } from 'react-router';
 import { FilePlus2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 import CollapsibleItem from '@/components/navigation/sidebar/colapsible';
 
@@ -10,15 +11,32 @@ import { Button } from '@/components/ui/button';
 
 function Exercises() {
   const { exercises } = useExercisesStore();
+  const match = useMatch('/exercises/:id');
+  const [selected, setSelected] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    if (match && match.params && match.params.id) {
+      setSelected(match.params.id);
+    } else {
+      setSelected(undefined);
+    }
+  }, [match]);
 
   return (
     <CollapsibleItem title='Exercises'>
-      <ul className='mt-2 space-y-4 md:space-y-2'>
+      <ul className='mt-2 '>
         {Object.keys(exercises).map(exercise => {
           const { title, id } = exercises[exercise];
+          const isSelected = id === selected;
           return (
-            <li key={id} className='px-4'>
-              <Link to={PATHS.EXERCISE(id)}>{title}</Link>
+            <li
+              key={id}
+              className={`px-4 py-4 md:py-2 ${
+                isSelected ? 'bg-muted rounded' : ''
+              }`}>
+              <Link className='bg-transparent' to={PATHS.EXERCISE(id)}>
+                {title}
+              </Link>
             </li>
           );
         })}
