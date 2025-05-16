@@ -1,26 +1,18 @@
-import { useParams, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import FormField from '@/components/form/field';
 import { Button } from '@/components/ui/button';
 
-import NotFound from '@/pages/not-found';
-
 import { useExercisesStore } from '@/store/exercises';
 
 import { ExerciseSchema, type ExerciseFormData } from '@/lib/types';
 import { PATHS } from '@/routes/paths';
 
-function EditExercisePage() {
-  const { id } = useParams();
+function CreateExercisePage() {
+  const { createExercise } = useExercisesStore();
   const navigate = useNavigate();
-  const { exercises, updateExercise } = useExercisesStore();
-
-  if (!id) {
-    return <NotFound title='Exercise not found' />;
-  }
-  const exercise = exercises[id];
 
   const {
     register,
@@ -31,15 +23,13 @@ function EditExercisePage() {
   });
 
   const onSubmit = async (data: ExerciseFormData) => {
-    updateExercise(id, { id, ...data });
+    const id = crypto.randomUUID();
+    createExercise({ ...data, id });
     navigate(PATHS.EXERCISE(id));
   };
-
   return (
     <section className='max-w-[700px]'>
-      <h1 className='text-2xl'>
-        Update an exercise: <span className='font-bold'>{id}</span>
-      </h1>
+      <h1 className='text-2xl'>Create a new exercise:</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2 className='text-xl mt-6 font-medium'>
           Exercise description fields
@@ -52,7 +42,6 @@ function EditExercisePage() {
           name='title'
           register={register}
           error={errors.title}
-          defaultValue={exercise?.title}
         />
 
         <FormField
@@ -63,7 +52,6 @@ function EditExercisePage() {
           name='description'
           register={register}
           error={errors.description}
-          defaultValue={exercise?.description}
         />
 
         <FormField
@@ -78,7 +66,6 @@ function EditExercisePage() {
               ? errors.examples[0]
               : errors.examples
           }
-          defaultValue={exercise?.examples.join(',\n')}
           description='An URL of completed exercise image. Enter urls separated by commas or new lines. Each example must be a valid URL.'
         />
 
@@ -92,7 +79,6 @@ function EditExercisePage() {
             valueAsNumber
             register={register}
             error={errors.time}
-            defaultValue={exercise?.time}
           />
           <FormField
             className='grow'
@@ -103,7 +89,6 @@ function EditExercisePage() {
             valueAsNumber
             register={register}
             error={errors.images_per_exercise}
-            defaultValue={exercise?.images_per_exercise}
           />
         </div>
         <p className='text-sm mt-2 text-muted-foreground'>
@@ -127,15 +112,14 @@ function EditExercisePage() {
           error={
             Array.isArray(errors.images) ? errors.images[0] : errors.images
           }
-          defaultValue={exercise?.images.join(',\n')}
           description='A URL of images to draw. Each time the exercise runs, it takes the first image from the list and moves it to the end. If your exercise has 5 images to draw and you plan to use this exercise in a schedule 3 times, ensure the exercise has at least 15 images (5 for each exercise in the schedule). Otherwise, images will be repeated. Enter URLs separated by commas, spaces, or new lines. Each image must be a valid URL.'
         />
         <Button type='submit' className='mt-6 w-full md:w-fit'>
-          Update
+          Create
         </Button>
       </form>
     </section>
   );
 }
 
-export default EditExercisePage;
+export default CreateExercisePage;

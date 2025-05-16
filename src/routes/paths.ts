@@ -9,6 +9,7 @@ export const PATHS = {
     ref: { scheduleId: string; exerciseId: string }
   ) =>
     `/exercises/${id}?scheduleId=${ref.scheduleId}&exerciseId=${ref.exerciseId}`,
+  CREATE_EXERCISES: '/create/exercises',
   EDIT_EXERCISES: '/edit/exercises/:id',
   DELETE_EXERCISES: '/delete/exercises/:id',
   EDIT_EXERCISE: (id: string) => `/edit/exercises/${id}`,

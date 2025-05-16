@@ -29,6 +29,17 @@ export const useExercisesStore = create<ExercisesStoreState>()(set => {
       return exercise;
     },
 
+    createExercise: (exercise: ExercisesData[string]) => {
+      set(state => {
+        const updatedExercises = {
+          ...state.exercises,
+          [exercise.id]: exercise,
+        };
+        localStorage.setItem(EXERCISES_KEY, JSON.stringify(updatedExercises));
+        return { ...state, exercises: updatedExercises };
+      });
+    },
+
     updateExercise: (id: string, exercise: ExercisesData[string]) => {
       set(state => {
         const updatedExercises = { ...state.exercises, [id]: exercise };
