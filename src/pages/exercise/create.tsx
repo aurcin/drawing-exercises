@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'sonner';
 
 import FormField from '@/components/form/field';
 import { Button } from '@/components/ui/button';
@@ -22,9 +23,13 @@ function CreateExercisePage() {
     resolver: zodResolver(ExerciseSchema),
   });
 
+  const generateId = () =>
+    'ex_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+
   const onSubmit = async (data: ExerciseFormData) => {
-    const id = crypto.randomUUID();
+    const id = generateId();
     createExercise({ ...data, id });
+    toast('Exercise has been created.');
     navigate(PATHS.EXERCISE(id));
   };
   return (

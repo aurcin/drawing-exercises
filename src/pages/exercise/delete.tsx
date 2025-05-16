@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router';
 import { useEffect } from 'react';
 import { LoaderCircle } from 'lucide-react';
+import { toast } from 'sonner';
 
 import NotFound from '@/pages/not-found';
 
@@ -21,10 +22,12 @@ function DeleteExercisePage() {
   const { removeExerciseFromAllSchedules } = useScheduleStore();
 
   useEffect(() => {
-    removeExerciseFromAllSchedules(id);
-    deleteExercise(id);
-    navigate(PATHS.HOME);
-  }, [id]);
+    if (deleteExercise(id)) {
+      removeExerciseFromAllSchedules(id);
+      toast('Exercise has been deleted');
+      navigate(PATHS.HOME);
+    }
+  }, []);
 
   return (
     <>

@@ -49,12 +49,18 @@ export const useExercisesStore = create<ExercisesStoreState>()(set => {
     },
 
     deleteExercise: (id: string) => {
+      let wasDeleted = false;
       set(state => {
         const updatedExercises = { ...state.exercises };
+        if (!updatedExercises[id]) {
+          return { ...state };
+        }
         delete updatedExercises[id];
         localStorage.setItem(EXERCISES_KEY, JSON.stringify(updatedExercises));
+        wasDeleted = true;
         return { ...state, exercises: updatedExercises };
       });
+      return wasDeleted;
     },
 
     getNextImage: (id: string) => {

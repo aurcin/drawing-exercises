@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'sonner';
 
 import FormField from '@/components/form/field';
 import { Button } from '@/components/ui/button';
@@ -32,6 +33,7 @@ function EditExercisePage() {
 
   const onSubmit = async (data: ExerciseFormData) => {
     updateExercise(id, { id, ...data });
+    toast('Exercise has been updated');
     navigate(PATHS.EXERCISE(id));
   };
 
