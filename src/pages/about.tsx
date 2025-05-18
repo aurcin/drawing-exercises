@@ -68,6 +68,7 @@ function AboutPage() {
       </h3>
       <ul className='list-disc list-inside space-y-2'>
         <li>Fixed dark theme colors on mobile sidebar</li>
+        <li>Ability to create, update and delete exercises</li>
       </ul>
 
       <h3 className=' text-foreground/60 flex justify-between'>
