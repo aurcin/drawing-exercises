@@ -21,7 +21,13 @@
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/13.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/14.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/15.jpg",
-      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/16.jpg"
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/16.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/17.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/18.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/19.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/20.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex3/2.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex3/3.jpg"
     ],
     "examples": [
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/examples/1.jpg"
@@ -127,6 +133,7 @@
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/117.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/28.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/94.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/140.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/39.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/72.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/47.jpg",
@@ -181,10 +188,24 @@
   "exercise_3": {
     "id": "exercise_3",
     "title": "Ex. 3: Cross Contours",
-    "description": "to do",
-    "time": 1800,
-    "images_per_exercise": 25,
-    "images": ["https://example.com/image1.jpg"],
-    "examples": []
+    "description": "In this exercise, you'll explore cross contours—imaginary lines that wrap around the form of the body, helping to reveal its three-dimensional structure. Start by placing your pencil on a point along the outer contour and move it across the figure at a right angle to that edge, letting your eyes and hand follow the surface of the form. These curved lines dip into hollows and rise over muscles, much like barrel hoops around a rounded object or adhesive tape pressed along the skin. Unlike inside contours, which define distinct features like the nose, cross contours can begin or end anywhere and shift depending on the figure's position. Focus on drawing smooth, horizontal lines that describe volume and depth, occasionally including vertical lines down the torso or limbs for anatomical clarity. Though the marks may look abstract or scattered, they strengthen your sense of form and create a more physical, tactile connection with the subject.",
+    "time": 900,
+    "images_per_exercise": 1,
+    "images": [
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex3/1.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex3/2.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex3/3.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/7.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/12.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/15.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/16.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/17.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/18.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/31.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/49.jpg"
+    ],
+    "examples": [
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/examples/3.jpg"
+    ]
   }
 }

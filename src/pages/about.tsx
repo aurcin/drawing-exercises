@@ -63,13 +63,30 @@ function AboutPage() {
       <h2 className='text-2xl mt-12'>Updates</h2>
 
       <h3 className=' text-foreground/60 flex justify-between'>
-        <i>2025.05.x</i>
+        <i>2025.05.24</i>
         <span className='text-sm'>v 0.2.1</span>
       </h3>
       <ul className='list-disc list-inside space-y-2'>
-        <li>Fixed dark theme colors on mobile sidebar</li>
-        <li>Ability to create, update and delete exercises</li>
+        <li>Fixed dark theme colors on the mobile sidebar</li>
+        <li>Added the ability to create, update, and delete exercises</li>
+        <li>Added Exercise 3</li>
+        <li>
+          Replaced some images in older exercises to fix AI generation issues
+          (e.g., incorrect hands, etc.)
+        </li>
       </ul>
+      <div>
+        If you alredy used this app, to see updated exercises you need to{' '}
+        <Button
+          size='sm'
+          variant='destructive'
+          onClick={handleReset}
+          title='Reset all progress and data to default'>
+          <RotateCcw className='bg-transparent stroke-white' />
+          Reset
+        </Button>{' '}
+        data.
+      </div>
 
       <h3 className=' text-foreground/60 flex justify-between'>
         <i>2025.05.08</i>
@@ -77,22 +94,7 @@ function AboutPage() {
       </h3>
       <ul className='list-disc list-inside space-y-2'>
         <li>Added the ability to manage exercise and schedule progress</li>
-        <li>
-          Implemented Exercise 2.{' '}
-          <div>
-            (if you alredy used this app and loaded previous exercise data, you
-            need to{' '}
-            <Button
-              size='sm'
-              variant='destructive'
-              onClick={handleReset}
-              title='Reset all progress and data to default'>
-              <RotateCcw className='bg-transparent stroke-white' />
-              Reset
-            </Button>{' '}
-            data to see updated exercises)
-          </div>
-        </li>
+        <li>Implemented Exercise 2</li>
       </ul>
     </section>
   );
