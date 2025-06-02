@@ -22,7 +22,7 @@ import { useThemeStore } from '@/store/theme';
 
 function Exercises() {
   const { exercises } = useExercisesStore();
-  const match = useMatch('/exercises/:id');
+  const match = useMatch(PATHS.EXERCISES);
   const [selected, setSelected] = useState<string | undefined>(undefined);
   const { theme } = useThemeStore();
 
