@@ -34,11 +34,9 @@ function CreateExercisePage() {
   };
   return (
     <section className='max-w-[700px]'>
-      <h1 className='text-2xl'>Create a new exercise:</h1>
+      <h1 className='text-2xl font-medium'>Create a new exercise</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h2 className='text-xl mt-6 font-medium'>
-          Exercise description fields
-        </h2>
+        <h2 className='text-lg mt-6 '>Exercise description fields</h2>
         <FormField
           className='mt-6'
           label='Title'
@@ -105,7 +103,7 @@ function CreateExercisePage() {
 
         <hr className='my-8' />
 
-        <h2 className='text-xl mt-6 font-medium'>Exercise images</h2>
+        <h2 className='text-lg mt-6'>Exercise images</h2>
 
         <FormField
           className='mt-6'

@@ -40,10 +40,10 @@ function CreateShedulePage() {
   };
   return (
     <section className='max-w-[700px]'>
-      <h1 className='text-2xl'>Create a new schedule:</h1>
+      <h1 className='text-2xl font-medium'>Create a new schedule</h1>
       <h2></h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h2 className='text-xl mt-6 font-medium'>Schedule fields</h2>
+        <h2 className='text-lg mt-6 '>Schedule fields</h2>
         <FormField
           className='mt-6'
           label='Title'
@@ -55,7 +55,7 @@ function CreateShedulePage() {
         />
 
         <hr className='my-8' />
-        <h2 className='text-xl mt-6 font-medium'>Exercises</h2>
+        <h2 className='text-lg mt-6'>Exercises</h2>
         <ExerciseSelect className='mt-4' />
 
         <Button type='submit' className='mt-6 w-full md:w-fit'>
