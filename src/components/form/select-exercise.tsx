@@ -28,7 +28,7 @@ function ExerciseSelect(props: ExerciseSelectProps) {
   const buttonText = selectedExercise ? `Add` : 'Select an exercise first';
 
   return (
-    <div className={`flex  gap-2 ${className}`}>
+    <div className={`flex flex-col md:flex-row  gap-2 ${className}`}>
       <Select onValueChange={value => setSelectedExercise(value)}>
         <SelectTrigger className='w-full'>
           <SelectValue placeholder='Select an exercise to add' />
