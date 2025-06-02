@@ -2,6 +2,8 @@ export const PATHS = {
   HOME: '/drawing-exercises',
   SCHEDULES: '/schedules/:id',
   SCHEDULE: (id: string) => `/schedules/${id}`,
+  CREATE_SCHEDULES: '/create/schedules',
+
   EXERCISES: '/exercises/:id',
   EXERCISE: (id: string) => `/exercises/${id}`,
   EXERCISE_REFFERED: (
@@ -14,6 +16,7 @@ export const PATHS = {
   DELETE_EXERCISES: '/delete/exercises/:id',
   EDIT_EXERCISE: (id: string) => `/edit/exercises/${id}`,
   DELETE_EXERCISE: (id: string) => `/delete/exercises/${id}`,
+
   SETTINGS: '/settings',
   ABOUT: '/about',
   EMAIL: 'aurcin@gmail.com',

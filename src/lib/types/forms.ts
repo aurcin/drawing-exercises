@@ -1,8 +1,6 @@
 import { z } from 'zod';
 import { FieldError, UseFormRegister } from 'react-hook-form';
 
-import type { ExerciseFormData } from '@/lib/types/exercises';
-
 export type ValidFieldNames =
   | 'title'
   | 'description'
@@ -16,7 +14,7 @@ export type FormFieldProps = {
   placeholder: string;
   label: string;
   name: ValidFieldNames;
-  register: UseFormRegister<ExerciseFormData>;
+  register: UseFormRegister<any>;
   error: FieldError | undefined;
   valueAsNumber?: boolean;
   className?: string;
@@ -75,4 +73,8 @@ export const ExerciseSchema: any = z.object({
       invalid_type_error: 'Number of images for exercise is required',
     })
     .min(1, { message: 'Number of images must be a positive number' }),
+});
+
+export const ScheduleSchema: any = z.object({
+  title: z.string().min(1, { message: 'Schedule title is required' }),
 });

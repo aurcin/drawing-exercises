@@ -21,6 +21,17 @@ export const useScheduleStore = create<SchedulesStoreState>()((set, get) => {
   return {
     schedules,
 
+    createSchedule: (schedule: SchedulesData[string]) => {
+      set(state => {
+        const updatedSchedules = {
+          ...state.schedules,
+          [schedule.id]: schedule,
+        };
+        localStorage.setItem(SCHEDULES_KEY, JSON.stringify(updatedSchedules));
+        return { ...state, schedules: updatedSchedules };
+      });
+    },
+
     markExerciseAsCompleted: (scheduleId: string, exerciseId: string) => {
       set(state => {
         const updatedSchedules = { ...state.schedules };

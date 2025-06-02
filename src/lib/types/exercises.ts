@@ -17,6 +17,10 @@ export type ExerciseFormData = {
   examples: string[];
 };
 
+export type ScheduleFormData = {
+  title: string;
+};
+
 export type ExerciseState = 'description' | 'preview';
 
 export type ExerciseImageState = {

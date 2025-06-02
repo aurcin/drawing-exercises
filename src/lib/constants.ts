@@ -17,7 +17,7 @@ export const DEFAULT_EXERCISE: Exercise = {
 
 export const DEFAULT_SCHEDULE: Schedule = {
   id: 'default',
-  name: 'Default',
+  title: 'Default',
   exercises: [],
 };
 

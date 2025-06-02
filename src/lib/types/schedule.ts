@@ -6,7 +6,7 @@ export type ScheduleExerciseCell = {
 
 export type Schedule = {
   id: string;
-  name: string;
+  title: string;
   exercises: ScheduleExerciseCell[];
 };
 
@@ -15,6 +15,8 @@ export type ScheduleStatus = 'completed' | 'in-progress' | 'not-started';
 export type SchedulesData = Record<string, Schedule>;
 export type SchedulesStoreState = {
   schedules: SchedulesData;
+
+  createSchedule: (schedule: Schedule) => void;
 
   markExerciseAsCompleted: (scheduleId: string, exerciseId: string) => void;
   toggleExerciseStatus: (scheduleId: string, exerciseId: string) => void;

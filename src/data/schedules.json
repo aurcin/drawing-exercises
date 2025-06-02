@@ -1,7 +1,7 @@
 {
   "schedule_1": {
     "id": "schedule_1",
-    "name": "Schedule 1",
+    "title": "Schedule 1",
     "exercises": [
       {
         "id": "s1e1",

@@ -26,7 +26,7 @@ function ShedulePage() {
 
   return (
     <section>
-      <h1 className='text-2xl'>{schedule.name}</h1>
+      <h1 className='text-2xl'>{schedule.title}</h1>
       <div className='flex justify-end gap-1'>
         <p className='text-sm text-muted-foreground mt-4 mr-auto'>
           (from left to right{' '}
