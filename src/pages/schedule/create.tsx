@@ -42,6 +42,7 @@ function CreateShedulePage() {
       <h1 className='text-2xl'>Create a new schedule:</h1>
       <h2></h2>
       <form onSubmit={handleSubmit(onSubmit)}>
+        <h2 className='text-xl mt-6 font-medium'>Schedule fields</h2>
         <FormField
           className='mt-6'
           label='Title'
@@ -51,6 +52,9 @@ function CreateShedulePage() {
           register={register}
           error={errors.title}
         />
+
+        <hr className='my-8' />
+        <h2 className='text-xl mt-6 font-medium'>Exercises</h2>
 
         <Button type='submit' className='mt-6 w-full md:w-fit'>
           Create

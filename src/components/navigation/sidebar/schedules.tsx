@@ -19,9 +19,10 @@ function Schedules() {
           return (
             <li key={id} className='flex justify-between px-4'>
               <Link to={PATHS.SCHEDULE(id)}>{title}</Link>
-              {exercises.every(exercise => exercise.isCompleted) && (
-                <Check className='stroke-primary size-4' />
-              )}
+              {exercises.length > 0 &&
+                exercises.every(exercise => exercise.isCompleted) && (
+                  <Check className='stroke-primary size-4' />
+                )}
             </li>
           );
         })}

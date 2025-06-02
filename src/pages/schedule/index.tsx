@@ -24,6 +24,15 @@ function ShedulePage() {
     return <NotFound title='Schedule not found' />;
   }
 
+  if (!schedule.exercises || schedule.exercises.length === 0) {
+    return (
+      <section>
+        <h1 className='text-2xl'>{schedule.title}</h1>
+        <div className='mt-6'>There are no exercises in this schedule</div>
+      </section>
+    );
+  }
+
   return (
     <section>
       <h1 className='text-2xl'>{schedule.title}</h1>
