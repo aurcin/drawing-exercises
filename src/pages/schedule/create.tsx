@@ -14,6 +14,7 @@ import {
   type ScheduleExerciseCell,
 } from '@/lib/types';
 import { PATHS } from '@/routes/paths';
+import ExerciseSelect from '@/components/form/select-exercise';
 
 function CreateShedulePage() {
   const { createSchedule } = useScheduleStore();
@@ -55,6 +56,7 @@ function CreateShedulePage() {
 
         <hr className='my-8' />
         <h2 className='text-xl mt-6 font-medium'>Exercises</h2>
+        <ExerciseSelect className='mt-4' />
 
         <Button type='submit' className='mt-6 w-full md:w-fit'>
           Create

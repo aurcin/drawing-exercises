@@ -34,12 +34,10 @@ function Schedules() {
               className={`px-4 py-4 md:py-2 flex justify-between ${
                 isSelected ? 'bg-neutral-300 dark:bg-neutral-700 rounded' : ''
               }`}>
-              <Link to={PATHS.SCHEDULE(id)} className='bg-transparent'>
-                {title}
-              </Link>
+              <Link to={PATHS.SCHEDULE(id)}>{title}</Link>
               {exercises.length > 0 &&
                 exercises.every(exercise => exercise.isCompleted) && (
-                  <Check className='stroke-primary size-4 bg-transparent' />
+                  <Check className='stroke-primary size-4' />
                 )}
             </li>
           );
@@ -48,7 +46,7 @@ function Schedules() {
       <div className='border-b mt-2 px-4 py-2 flex gap-2'>
         <Button asChild variant='outline' size='sm'>
           <Link to={PATHS.CREATE_SCHEDULES} title='New Schedule'>
-            <FilePlus2 className='size-4 bg-transparent' />
+            <FilePlus2 className='size-4' />
           </Link>
         </Button>
         {/* 
@@ -68,7 +66,7 @@ function Schedules() {
                   variant='outline'
                   size='sm'
                   title={`Delete an Exercise ${exercises[selected].title}`}>
-                  <Trash2 className='bg-transparen' />
+                  <Trash2  />
                 </Button>
               </DialogTrigger>
               <DialogContent className={theme}>

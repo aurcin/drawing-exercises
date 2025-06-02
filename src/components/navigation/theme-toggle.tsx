@@ -19,11 +19,7 @@ function ThemeToggle(props: ThemeToggleProps) {
       variant={'outline'}
       onClick={toggleTheme}
       title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
-      {theme === 'dark' ? (
-        <Moon className='bg-transparent' />
-      ) : (
-        <Sun className='bg-transparent' />
-      )}
+      {theme === 'dark' ? <Moon /> : <Sun />}
     </Button>
   );
 }

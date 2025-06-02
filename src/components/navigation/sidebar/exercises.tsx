@@ -46,9 +46,7 @@ function Exercises() {
               className={`px-4 py-4 md:py-2 ${
                 isSelected ? 'bg-neutral-300 dark:bg-neutral-700 rounded' : ''
               }`}>
-              <Link className='bg-transparent' to={PATHS.EXERCISE(id)}>
-                {title}
-              </Link>
+              <Link to={PATHS.EXERCISE(id)}>{title}</Link>
             </li>
           );
         })}
@@ -56,7 +54,7 @@ function Exercises() {
       <div className='border-b mt-2 px-4 py-2 flex gap-2'>
         <Button asChild variant='outline' size='sm'>
           <Link to={PATHS.CREATE_EXERCISES} title='New Exercise'>
-            <FilePlus2 className='size-4 bg-transparent' />
+            <FilePlus2 className='size-4 ' />
           </Link>
         </Button>
         {selected && (
@@ -75,7 +73,7 @@ function Exercises() {
                   variant='outline'
                   size='sm'
                   title={`Delete an Exercise ${exercises[selected].title}`}>
-                  <Trash2 className='bg-transparen' />
+                  <Trash2 />
                 </Button>
               </DialogTrigger>
               <DialogContent className={theme}>

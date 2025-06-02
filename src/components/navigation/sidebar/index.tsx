@@ -45,7 +45,7 @@ function AppSidebar() {
             title='Go to the settings page'
             className='clickable'>
             <Link to={PATHS.SETTINGS}>
-              <Settings className='bg-transparent' />
+              <Settings />
             </Link>
           </Button>
           <Button
@@ -54,7 +54,7 @@ function AppSidebar() {
             title='Go to the about page'
             className='clickable'>
             <Link to={PATHS.ABOUT}>
-              <CircleHelp className='bg-transparent' />
+              <CircleHelp />
             </Link>
           </Button>
         </div>
