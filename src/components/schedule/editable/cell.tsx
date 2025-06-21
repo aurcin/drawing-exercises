@@ -8,12 +8,15 @@ import { Button } from '@/components/ui/button';
 interface ScheduleCellProps {
   exercise: ScheduleExerciseCell;
   onDelete: () => void;
+
+  className?: string;
 }
 
 function ScheduleCell(props: ScheduleCellProps) {
   const {
     exercise: { exercise },
     onDelete,
+    className = '',
   } = props;
 
   const { exercises } = useExercisesStore();
@@ -25,7 +28,7 @@ function ScheduleCell(props: ScheduleCellProps) {
   }
 
   return (
-    <div className='border-1 p-2 h-full flex flex-col'>
+    <div className={`border-1 p-2 h-full flex flex-col ${className}`}>
       <h2 className='font-semibold text-primary line-clamp-2'>
         {currentExercise.title}
       </h2>
