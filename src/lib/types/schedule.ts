@@ -28,4 +28,6 @@ export type SchedulesStoreState = {
   removeExerciseFromAllSchedules: (exerciseId: string) => void;
 
   resetAllSchedules: () => void;
+
+  deleteSchedule: (id: string) => boolean;
 };

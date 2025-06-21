@@ -3,6 +3,8 @@ export const PATHS = {
   SCHEDULES: '/schedules/:id',
   SCHEDULE: (id: string) => `/schedules/${id}`,
   CREATE_SCHEDULES: '/create/schedules',
+  DELETE_SCHEDULES: '/delete/schedules/:id',
+  DELETE_SCHEDULE: (id: string) => `/delete/schedules/${id}`,
 
   EXERCISES: '/exercises/:id',
   EXERCISE: (id: string) => `/exercises/${id}`,

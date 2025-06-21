@@ -1,16 +1,28 @@
 import { useState, useEffect } from 'react';
 import { Link, useMatch } from 'react-router';
-import { Check, FilePlus2 } from 'lucide-react';
+import { Check, FilePlus2, SquarePen, Trash2 } from 'lucide-react';
 
 import CollapsibleItem from '@/components/navigation/sidebar/colapsible';
 import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+  DialogClose,
+} from '@/components/ui/dialog';
 
 import { PATHS } from '@/routes/paths';
 
 import { useScheduleStore } from '@/store/schedules';
+import { useThemeStore } from '@/store/theme';
 
 function Schedules() {
   const { schedules } = useScheduleStore();
+  const { theme } = useThemeStore();
   const match = useMatch(PATHS.SCHEDULES);
   const [selected, setSelected] = useState<string | undefined>(undefined);
 
@@ -49,24 +61,24 @@ function Schedules() {
             <FilePlus2 className='size-4' />
           </Link>
         </Button>
-        {/* 
+
         {selected && (
           <>
-            <Button variant='outline' asChild size='sm'>
+            {/* <Button variant='outline' asChild size='sm'>
               <Link
                 to={PATHS.EDIT_EXERCISE(selected)}
                 title={`Edit an Exercise ${exercises[selected].title}`}>
                 <SquarePen />
               </Link>
-            </Button>
+            </Button> */}
             <Dialog>
               <DialogTrigger asChild>
                 <Button
                   className='ml-auto'
                   variant='outline'
                   size='sm'
-                  title={`Delete an Exercise ${exercises[selected].title}`}>
-                  <Trash2  />
+                  title={`Delete a Schedule ${schedules[selected].title}`}>
+                  <Trash2 />
                 </Button>
               </DialogTrigger>
               <DialogContent className={theme}>
@@ -75,13 +87,12 @@ function Schedules() {
                 </DialogHeader>
                 <DialogDescription>
                   This action cannot be undone. It will permanently delete the
-                  exercise <b>'{exercises[selected].title}'</b> and remove it
-                  from any schedules that include it.
+                  Schedule <b>'{schedules[selected].title}'</b>
                 </DialogDescription>
                 <DialogFooter className='sm:justify-start'>
                   <DialogClose asChild>
                     <Button asChild type='submit' variant='destructive'>
-                      <Link to={PATHS.DELETE_EXERCISE(selected)}>
+                      <Link to={PATHS.DELETE_SCHEDULE(selected)}>
                         Yes, Delete it
                       </Link>
                     </Button>
@@ -91,7 +102,6 @@ function Schedules() {
             </Dialog>
           </>
         )}
-         */}
       </div>
     </CollapsibleItem>
   );

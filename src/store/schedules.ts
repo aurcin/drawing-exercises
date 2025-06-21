@@ -151,5 +151,20 @@ export const useScheduleStore = create<SchedulesStoreState>()((set, get) => {
       localStorage.setItem(SCHEDULES_KEY, JSON.stringify(schedules));
       set({ schedules });
     },
+
+    deleteSchedule: (id: string) => {
+      let wasDeleted = false;
+      set(state => {
+        const updatedSchedules = { ...state.schedules };
+        if (!updatedSchedules[id]) {
+          return { ...state };
+        }
+        delete updatedSchedules[id];
+        localStorage.setItem(SCHEDULES_KEY, JSON.stringify(updatedSchedules));
+        wasDeleted = true;
+        return { ...state, schedules: updatedSchedules };
+      });
+      return wasDeleted;
+    },
   };
 });

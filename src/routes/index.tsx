@@ -10,8 +10,10 @@ import ExercisePage from '@/pages/exercise';
 import EditExercisePage from '@/pages/exercise/edit';
 import DeleteExercisePage from '@/pages/exercise/delete';
 import CreateExercisePage from '@/pages/exercise/create';
+import DeleteSchedulePage from '@/pages/schedule/delete';
 
 import { PATHS } from '@/routes/paths';
+
 function PageRoutes() {
   return (
     <Routes>
@@ -25,6 +27,7 @@ function PageRoutes() {
 
         <Route path={PATHS.SCHEDULES} element={<SchedulePage />} />
         <Route path={PATHS.CREATE_SCHEDULES} element={<CreateSchedulePage />} />
+        <Route path={PATHS.DELETE_SCHEDULES} element={<DeleteSchedulePage />} />
 
         <Route path={PATHS.EXERCISES} element={<ExercisePage />} />
         <Route path={PATHS.CREATE_EXERCISES} element={<CreateExercisePage />} />
