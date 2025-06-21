@@ -2,23 +2,30 @@ import { useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
+import { useState } from 'react';
 
 import FormField from '@/components/form/field';
 import { Button } from '@/components/ui/button';
-
-import { useScheduleStore } from '@/store/schedules';
+import ExerciseSelect from '@/components/form/select-exercise';
 
 import {
   ScheduleSchema,
   type ScheduleFormData,
   type ScheduleExerciseCell,
 } from '@/lib/types';
+import { generateId } from '@/lib/utils';
+
 import { PATHS } from '@/routes/paths';
-import ExerciseSelect from '@/components/form/select-exercise';
+
+import { useScheduleStore } from '@/store/schedules';
 
 function CreateShedulePage() {
   const { createSchedule } = useScheduleStore();
   const navigate = useNavigate();
+
+  const [exercisesToAdd, setExercisesToAdd] = useState<ScheduleExerciseCell[]>(
+    []
+  );
 
   const {
     register,
@@ -28,16 +35,21 @@ function CreateShedulePage() {
     resolver: zodResolver(ScheduleSchema),
   });
 
-  const generateId = () =>
-    's_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+  function addExerciseToAdd(exercise: string) {
+    const id = generateId();
+    setExercisesToAdd(previousState => {
+      return [...previousState, { id, exercise, isCompleted: false }];
+    });
+  }
 
-  const onSubmit = async (data: ScheduleFormData) => {
+  async function onSubmit(data: ScheduleFormData) {
     const id = generateId();
     const exercises: ScheduleExerciseCell[] = [];
     createSchedule({ ...data, id, exercises });
     toast('Schedule has been created.');
     navigate(PATHS.SCHEDULE(id));
-  };
+  }
+
   return (
     <section className='max-w-[700px]'>
       <h1 className='text-2xl font-medium'>Create a new schedule</h1>
@@ -56,10 +68,13 @@ function CreateShedulePage() {
 
         <hr className='my-8' />
         <h2 className='text-lg mt-6'>Exercises</h2>
-        <ExerciseSelect className='mt-4' />
+        <div>{JSON.stringify(exercisesToAdd)}</div>
+        <ExerciseSelect className='mt-4' onAdd={addExerciseToAdd} />
+
+        <hr className='my-8' />
 
         <Button type='submit' className='mt-6 w-full md:w-fit'>
-          Create
+          Create Schedule
         </Button>
       </form>
     </section>

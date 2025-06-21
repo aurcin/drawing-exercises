@@ -23,3 +23,9 @@ export function deepClone<T>(obj: T): T {
 
   return clonedObj as T;
 }
+
+export function generateId() {
+  return (
+    's_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10)
+  );
+}

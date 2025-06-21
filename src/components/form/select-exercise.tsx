@@ -14,11 +14,12 @@ import { useExercisesStore } from '@/store/exercises';
 import { useThemeStore } from '@/store/theme';
 
 interface ExerciseSelectProps {
+  onAdd: (exercise: string) => void;
   className?: string;
 }
 
 function ExerciseSelect(props: ExerciseSelectProps) {
-  const { className = '' } = props;
+  const { onAdd, className = '' } = props;
 
   const [selectedExercise, setSelectedExercise] = useState<string | null>(null);
 
@@ -26,6 +27,12 @@ function ExerciseSelect(props: ExerciseSelectProps) {
   const { exercises } = useExercisesStore();
 
   const buttonText = selectedExercise ? `Add` : 'Select an exercise first';
+
+  function handleAddExercise() {
+    if (selectedExercise) {
+      onAdd(selectedExercise);
+    }
+  }
 
   return (
     <div className={`flex flex-col md:flex-row  gap-2 ${className}`}>
@@ -45,6 +52,7 @@ function ExerciseSelect(props: ExerciseSelectProps) {
         </SelectContent>
       </Select>
       <Button
+        onClick={handleAddExercise}
         type='button'
         variant='outline'
         disabled={selectedExercise ? false : true}>
