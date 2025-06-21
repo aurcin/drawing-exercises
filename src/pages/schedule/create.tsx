@@ -43,6 +43,12 @@ function CreateShedulePage() {
     });
   }
 
+  function removeExerciseFromAdd(exerciseId: string) {
+    setExercisesToAdd(previousState => {
+      return previousState.filter(exercise => exercise.id !== exerciseId);
+    });
+  }
+
   async function onSubmit(data: ScheduleFormData) {
     const id = generateId();
     const exercises: ScheduleExerciseCell[] = [];
@@ -69,7 +75,12 @@ function CreateShedulePage() {
 
         <hr className='my-8' />
         <h2 className='text-lg mt-6'>Exercises</h2>
-        <ScheduleBoard exercises={exercisesToAdd} />
+
+        <ScheduleBoard
+          exercises={exercisesToAdd}
+          onDelete={removeExerciseFromAdd}
+        />
+
         <ExerciseSelect className='mt-4' onAdd={addExerciseToAdd} />
 
         <hr className='my-8' />
