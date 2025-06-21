@@ -7,6 +7,7 @@ import { useState } from 'react';
 import FormField from '@/components/form/field';
 import { Button } from '@/components/ui/button';
 import ExerciseSelect from '@/components/form/select-exercise';
+import ScheduleBoard from '@/components/schedule/editable';
 
 import {
   ScheduleSchema,
@@ -68,7 +69,7 @@ function CreateShedulePage() {
 
         <hr className='my-8' />
         <h2 className='text-lg mt-6'>Exercises</h2>
-        <div>{JSON.stringify(exercisesToAdd)}</div>
+        <ScheduleBoard exercises={exercisesToAdd} />
         <ExerciseSelect className='mt-4' onAdd={addExerciseToAdd} />
 
         <hr className='my-8' />

@@ -1,12 +1,13 @@
 import { Link, useParams } from 'react-router';
 
-import { PATHS } from '@/routes/paths';
-
-import { useExercisesStore } from '@/store/exercises';
+import ClickableStatusButton from '@/components/ui/clickable-status-button';
 
 import { cn } from '@/lib/utils';
 import type { ScheduleExerciseCell } from '@/lib/types';
-import ClickableStatusButton from '../ui/clickable-status-button';
+
+import { PATHS } from '@/routes/paths';
+
+import { useExercisesStore } from '@/store/exercises';
 import { useScheduleStore } from '@/store/schedules';
 
 interface ScheduleCellProps {

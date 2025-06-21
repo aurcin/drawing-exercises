@@ -64,7 +64,7 @@ function ShedulePage() {
           </Button>
         )}
       </div>
-      <Schedule data={schedule} />
+      <Schedule exercises={schedule.exercises} />
     </section>
   );
 }
