@@ -64,13 +64,13 @@ function Schedules() {
 
         {selected && (
           <>
-            {/* <Button variant='outline' asChild size='sm'>
+            <Button variant='outline' asChild size='sm'>
               <Link
-                to={PATHS.EDIT_EXERCISE(selected)}
-                title={`Edit an Exercise ${exercises[selected].title}`}>
+                to={PATHS.EDIT_SCHEDULE(selected)}
+                title={`Edit a Schedule ${schedules[selected].title}`}>
                 <SquarePen />
               </Link>
-            </Button> */}
+            </Button>
             <Dialog>
               <DialogTrigger asChild>
                 <Button
