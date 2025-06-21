@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Trash2 } from 'lucide-react';
 
 import ScheduleCell from '@/components/schedule/editable/cell';
 
@@ -7,11 +8,12 @@ import { cn } from '@/lib/utils';
 
 interface ScheduleBoardProps {
   exercises: ScheduleExerciseCell[];
+  onSwap: (sourceIndex: number, targetIndex: number) => void;
   onDelete: (exerciseId: string) => void;
 }
 
 function ScheduleBoard(props: ScheduleBoardProps) {
-  const { exercises, onDelete } = props;
+  const { exercises, onDelete, onSwap } = props;
 
   const [source, setSource] = useState<number | null>(null);
   const [target, setTarget] = useState<number | null>(null);
@@ -55,10 +57,29 @@ function ScheduleBoard(props: ScheduleBoardProps) {
   }
 
   function handleDrop(event: React.DragEvent<HTMLUListElement>) {
+    event.preventDefault();
+
+    if (target !== null && source !== null && source !== target) {
+      onSwap(source, target);
+    }
+
     setSource(null);
     setTarget(null);
+  }
 
-    event.preventDefault();
+  function handleDragEnd() {
+    setSource(null);
+    setTarget(null);
+  }
+
+  function handleDelete() {
+    console.log('delete', source);
+
+    if (source !== null) {
+      onDelete(exercises[source].id);
+      setSource(null);
+      setTarget(null);
+    }
   }
 
   if (!exercises || exercises.length === 0) {
@@ -70,14 +91,11 @@ function ScheduleBoard(props: ScheduleBoardProps) {
   }
 
   return (
-    <>
-      <p>
-        source: {source} | taget: {target}
-      </p>
+    <div className='flex flex-col md:flex-row gap-2'>
       <ul
         onDragOver={e => e.preventDefault()}
         onDrop={handleDrop}
-        className='grid grid-cols-1 lg:grid-cols-5 gap-0 mt-2 rounded-lg border-1 shadow'>
+        className='grow grid grid-cols-1 lg:grid-cols-5 gap-0 rounded-lg border-1 shadow'>
         {exercises.map((exercise, idx) => {
           return (
             <li
@@ -85,7 +103,8 @@ function ScheduleBoard(props: ScheduleBoardProps) {
               draggable
               onDragStart={e => handleDragStart(e, idx)}
               onDragOver={e => handleDragOver(e, idx)}
-              onDragLeave={handleDragLeave}>
+              onDragLeave={handleDragLeave}
+              onDragEnd={handleDragEnd}>
               <ScheduleCell
                 className={cn('cursor-move', {
                   'opacity-20': source == idx,
@@ -93,13 +112,19 @@ function ScheduleBoard(props: ScheduleBoardProps) {
                   'border-l-primary': target === idx,
                 })}
                 exercise={exercise}
-                onDelete={() => onDelete(exercise.id)}
               />
             </li>
           );
         })}
       </ul>
-    </>
+      <div
+        className='flex flex-col items-center justify-center gap-2 p-4 bg-rose-400 text-background dark:bg-rose-600 dark:text-foreground text-xs rounded text-center'
+        onDragOver={e => e.preventDefault()}
+        onDrop={handleDelete}>
+        <Trash2 className='size-4' />
+        Drag here to delete
+      </div>
+    </div>
   );
 }
 

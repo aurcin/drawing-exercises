@@ -49,10 +49,21 @@ function CreateShedulePage() {
     });
   }
 
+  function handleSwap(source: number, target: number) {
+    setExercisesToAdd(previousExercises => {
+      const updatedExercises: any[] = [...previousExercises];
+
+      updatedExercises[source] = null;
+      updatedExercises.splice(target, 0, previousExercises[source]);
+
+      return updatedExercises.filter(exercise => exercise !== null);
+    });
+  }
+
   async function onSubmit(data: ScheduleFormData) {
     const id = generateId();
-    const exercises: ScheduleExerciseCell[] = [];
-    createSchedule({ ...data, id, exercises });
+
+    createSchedule({ ...data, id, exercises: exercisesToAdd });
     toast('Schedule has been created.');
     navigate(PATHS.SCHEDULE(id));
   }
@@ -78,6 +89,7 @@ function CreateShedulePage() {
 
         <ScheduleBoard
           exercises={exercisesToAdd}
+          onSwap={handleSwap}
           onDelete={removeExerciseFromAdd}
         />
 

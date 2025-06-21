@@ -1,13 +1,9 @@
-import { Trash2 } from 'lucide-react';
-
 import type { ScheduleExerciseCell } from '@/lib/types';
 
 import { useExercisesStore } from '@/store/exercises';
-import { Button } from '@/components/ui/button';
 
 interface ScheduleCellProps {
   exercise: ScheduleExerciseCell;
-  onDelete: () => void;
 
   className?: string;
 }
@@ -15,7 +11,6 @@ interface ScheduleCellProps {
 function ScheduleCell(props: ScheduleCellProps) {
   const {
     exercise: { exercise },
-    onDelete,
     className = '',
   } = props;
 
@@ -42,17 +37,6 @@ function ScheduleCell(props: ScheduleCellProps) {
             : (currentExercise.time / 60).toFixed(2)}
           min)
         </span>
-      </div>
-
-      <div className='flex justify-between mt-auto'>
-        <Button
-          onClick={onDelete}
-          variant='ghost'
-          className='mt-2 ml-auto'
-          size='icon'
-          title='Remove exercise'>
-          <Trash2 className='size-3' />
-        </Button>
       </div>
     </div>
   );

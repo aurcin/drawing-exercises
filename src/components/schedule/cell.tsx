@@ -32,7 +32,7 @@ function ScheduleCell(props: ScheduleCellProps) {
     <div className='border-1 p-4 relative h-full '>
       <div className='pr-10'>
         <h2
-          className={cn('text-xl font-semibold text-primary', {
+          className={cn('text-xl font-semibold text-primary line-clamp-2', {
             'text-muted-foreground': isCompleted,
           })}>
           <Link
