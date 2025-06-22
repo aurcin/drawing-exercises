@@ -32,6 +32,32 @@ export const useScheduleStore = create<SchedulesStoreState>()((set, get) => {
       });
     },
 
+    deleteSchedule: (id: string) => {
+      let wasDeleted = false;
+      set(state => {
+        const updatedSchedules = { ...state.schedules };
+        if (!updatedSchedules[id]) {
+          return { ...state };
+        }
+        delete updatedSchedules[id];
+        localStorage.setItem(SCHEDULES_KEY, JSON.stringify(updatedSchedules));
+        wasDeleted = true;
+        return { ...state, schedules: updatedSchedules };
+      });
+      return wasDeleted;
+    },
+
+    updateSchedule: (schedule: SchedulesData[string]) => {
+      set(state => {
+        const updatedSchedules = {
+          ...state.schedules,
+          [schedule.id]: schedule,
+        };
+        localStorage.setItem(SCHEDULES_KEY, JSON.stringify(updatedSchedules));
+        return { ...state, schedules: updatedSchedules };
+      });
+    },
+
     markExerciseAsCompleted: (scheduleId: string, exerciseId: string) => {
       set(state => {
         const updatedSchedules = { ...state.schedules };
@@ -45,6 +71,22 @@ export const useScheduleStore = create<SchedulesStoreState>()((set, get) => {
         }
 
         exercise.isCompleted = true;
+        localStorage.setItem(SCHEDULES_KEY, JSON.stringify(updatedSchedules));
+        return { ...state, schedules: updatedSchedules };
+      });
+    },
+
+    removeExerciseFromAllSchedules: (exerciseId: string) => {
+      set(state => {
+        const updatedSchedules = { ...state.schedules };
+
+        Object.keys(updatedSchedules).forEach(scheduleId => {
+          const schedule = updatedSchedules[scheduleId];
+          schedule.exercises = schedule.exercises.filter(
+            exercise => exercise.exercise !== exerciseId
+          );
+        });
+
         localStorage.setItem(SCHEDULES_KEY, JSON.stringify(updatedSchedules));
         return { ...state, schedules: updatedSchedules };
       });
@@ -87,25 +129,6 @@ export const useScheduleStore = create<SchedulesStoreState>()((set, get) => {
       });
     },
 
-    resetSheduleById: (scheduleId: string) => {
-      set(state => {
-        const updatedSchedules = { ...state.schedules };
-        const schedule = updatedSchedules[scheduleId];
-        if (!schedule) {
-          return { ...state };
-        }
-
-        const exercises = schedule.exercises.map(exercise => {
-          return { ...exercise, isCompleted: false };
-        });
-
-        schedule.exercises = exercises;
-
-        localStorage.setItem(SCHEDULES_KEY, JSON.stringify(updatedSchedules));
-        return { ...state, schedules: updatedSchedules };
-      });
-    },
-
     getScheduleStatus: (scheduleId: string) => {
       const schedule = get().schedules[scheduleId];
 
@@ -130,41 +153,29 @@ export const useScheduleStore = create<SchedulesStoreState>()((set, get) => {
       return 'in-progress';
     },
 
-    removeExerciseFromAllSchedules: (exerciseId: string) => {
-      set(state => {
-        const updatedSchedules = { ...state.schedules };
-
-        Object.keys(updatedSchedules).forEach(scheduleId => {
-          const schedule = updatedSchedules[scheduleId];
-          schedule.exercises = schedule.exercises.filter(
-            exercise => exercise.exercise !== exerciseId
-          );
-        });
-
-        localStorage.setItem(SCHEDULES_KEY, JSON.stringify(updatedSchedules));
-        return { ...state, schedules: updatedSchedules };
-      });
-    },
-
     resetAllSchedules: () => {
       const schedules = deepClone(data);
       localStorage.setItem(SCHEDULES_KEY, JSON.stringify(schedules));
       set({ schedules });
     },
 
-    deleteSchedule: (id: string) => {
-      let wasDeleted = false;
+    resetSheduleById: (scheduleId: string) => {
       set(state => {
         const updatedSchedules = { ...state.schedules };
-        if (!updatedSchedules[id]) {
+        const schedule = updatedSchedules[scheduleId];
+        if (!schedule) {
           return { ...state };
         }
-        delete updatedSchedules[id];
+
+        const exercises = schedule.exercises.map(exercise => {
+          return { ...exercise, isCompleted: false };
+        });
+
+        schedule.exercises = exercises;
+
         localStorage.setItem(SCHEDULES_KEY, JSON.stringify(updatedSchedules));
-        wasDeleted = true;
         return { ...state, schedules: updatedSchedules };
       });
-      return wasDeleted;
     },
   };
 });

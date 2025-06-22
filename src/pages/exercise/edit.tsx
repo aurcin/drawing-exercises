@@ -22,6 +22,7 @@ function EditExercisePage() {
     return <NotFound title='Exercise not found' />;
   }
   const exercise = exercises[id];
+  const { title } = exercise;
 
   const {
     register,
@@ -40,7 +41,7 @@ function EditExercisePage() {
   return (
     <section className='max-w-[700px]'>
       <h1 className='text-2xl'>
-        <b>{id}</b> exercise update
+        <b>{title}</b> exercise update
       </h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2 className='text-lg mt-6'>Exercise description fields</h2>

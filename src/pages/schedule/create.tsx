@@ -2,31 +2,26 @@ import { useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
-import { useState } from 'react';
 
 import FormField from '@/components/form/field';
 import { Button } from '@/components/ui/button';
 import ExerciseSelect from '@/components/form/select-exercise';
 import ScheduleBoard from '@/components/schedule/editable';
 
-import {
-  ScheduleSchema,
-  type ScheduleFormData,
-  type ScheduleExerciseCell,
-} from '@/lib/types';
+import { ScheduleSchema, type ScheduleFormData } from '@/lib/types';
 import { generateId } from '@/lib/utils';
 
 import { PATHS } from '@/routes/paths';
 
 import { useScheduleStore } from '@/store/schedules';
+import useScheduleBoard from '@/hooks/use-schedule-board';
 
 function CreateShedulePage() {
   const { createSchedule } = useScheduleStore();
   const navigate = useNavigate();
 
-  const [exercisesToAdd, setExercisesToAdd] = useState<ScheduleExerciseCell[]>(
-    []
-  );
+  const { exercises, addExercise, removeExercise, swapExercises } =
+    useScheduleBoard([]);
 
   const {
     register,
@@ -36,34 +31,10 @@ function CreateShedulePage() {
     resolver: zodResolver(ScheduleSchema),
   });
 
-  function addExerciseToAdd(exercise: string) {
-    const id = generateId();
-    setExercisesToAdd(previousState => {
-      return [...previousState, { id, exercise, isCompleted: false }];
-    });
-  }
-
-  function removeExerciseFromAdd(exerciseId: string) {
-    setExercisesToAdd(previousState => {
-      return previousState.filter(exercise => exercise.id !== exerciseId);
-    });
-  }
-
-  function handleSwap(source: number, target: number) {
-    setExercisesToAdd(previousExercises => {
-      const updatedExercises: any[] = [...previousExercises];
-
-      updatedExercises[source] = null;
-      updatedExercises.splice(target, 0, previousExercises[source]);
-
-      return updatedExercises.filter(exercise => exercise !== null);
-    });
-  }
-
   async function onSubmit(data: ScheduleFormData) {
     const id = generateId();
 
-    createSchedule({ ...data, id, exercises: exercisesToAdd });
+    createSchedule({ ...data, id, exercises });
     toast('Schedule has been created.');
     navigate(PATHS.SCHEDULE(id));
   }
@@ -88,12 +59,12 @@ function CreateShedulePage() {
         <h2 className='text-lg mt-6'>Exercises</h2>
 
         <ScheduleBoard
-          exercises={exercisesToAdd}
-          onSwap={handleSwap}
-          onDelete={removeExerciseFromAdd}
+          exercises={exercises}
+          onSwap={swapExercises}
+          onDelete={removeExercise}
         />
 
-        <ExerciseSelect className='mt-4' onAdd={addExerciseToAdd} />
+        <ExerciseSelect className='mt-4' onAdd={addExercise} />
 
         <hr className='my-8' />
 

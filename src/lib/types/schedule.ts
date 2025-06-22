@@ -17,17 +17,15 @@ export type SchedulesStoreState = {
   schedules: SchedulesData;
 
   createSchedule: (schedule: Schedule) => void;
+  deleteSchedule: (id: string) => boolean;
+  updateSchedule: (schedule: Schedule) => void;
 
   markExerciseAsCompleted: (scheduleId: string, exerciseId: string) => void;
+  removeExerciseFromAllSchedules: (exerciseId: string) => void;
   toggleExerciseStatus: (scheduleId: string, exerciseId: string) => void;
 
-  getScheduleStatus: (scheduleId: string) => ScheduleStatus;
   completeSheduleById: (scheduleId: string) => void;
-  resetSheduleById: (scheduleId: string) => void;
-
-  removeExerciseFromAllSchedules: (exerciseId: string) => void;
-
+  getScheduleStatus: (scheduleId: string) => ScheduleStatus;
   resetAllSchedules: () => void;
-
-  deleteSchedule: (id: string) => boolean;
+  resetSheduleById: (scheduleId: string) => void;
 };

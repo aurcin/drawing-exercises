@@ -28,7 +28,7 @@ function ScheduleCell(props: ScheduleCellProps) {
         {currentExercise.title}
       </h2>
 
-      <div className='text-sm'>
+      <div className='text-sm mt-auto'>
         {currentExercise.images_per_exercise} img{' '}
         <span className='text-muted-foreground text-xs'>
           (
