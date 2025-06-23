@@ -26,4 +26,4 @@ export const SCHEDULES_KEY = 'schedules';
 
 export const BASE_URL = 'https://aurcin.github.io/drawing-exercises';
 
-export const CURRENT_VERSION = 'v 0.2';
+export const CURRENT_VERSION = 'v 0.2.2';

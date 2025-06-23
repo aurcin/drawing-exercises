@@ -61,7 +61,16 @@ function AboutPage() {
       </p>
 
       <h2 className='text-2xl mt-12'>Updates</h2>
+      {/* ------------------- latest ---------------------- */}
+      <h3 className=' text-foreground/60 flex justify-between'>
+        <i>2025.06.22</i>
+        <span className='text-sm'>v 0.2.2</span>
+      </h3>
+      <ul className='list-disc list-inside space-y-2'>
+        <li>Added the ability to create, update and delete schedules</li>
+      </ul>
 
+      {/* ------------------- second latest ---------------------- */}
       <h3 className=' text-foreground/60 flex justify-between'>
         <i>2025.05.24</i>
         <span className='text-sm'>v 0.2.1</span>
@@ -75,6 +84,7 @@ function AboutPage() {
           (e.g., incorrect hands, etc.)
         </li>
       </ul>
+      {/* ------------------- reset notification ---------------------- */}
       <div>
         If you alredy used this app, to see updated exercises you need to{' '}
         <Button
@@ -87,15 +97,6 @@ function AboutPage() {
         </Button>{' '}
         data.
       </div>
-
-      <h3 className=' text-foreground/60 flex justify-between'>
-        <i>2025.05.08</i>
-        <span className='text-sm'>v 0.2</span>
-      </h3>
-      <ul className='list-disc list-inside space-y-2'>
-        <li>Added the ability to manage exercise and schedule progress</li>
-        <li>Implemented Exercise 2</li>
-      </ul>
     </section>
   );
 }

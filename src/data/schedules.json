@@ -1,7 +1,7 @@
 {
   "schedule_1": {
     "id": "schedule_1",
-    "title": "Schedule 1",
+    "title": "1. Contour and Gesture",
     "exercises": [
       {
         "id": "s1e1",
@@ -125,6 +125,137 @@
       },
       {
         "id": "s1e25",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      }
+    ]
+  },
+  "schedule_2": {
+    "id": "schedule_2",
+    "title": "2. The Comprehension of Gesture",
+    "exercises": [
+      {
+        "id": "s2e1",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e2",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e3",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e4",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e5",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e6",
+        "exercise": "exercise_3",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e7",
+        "exercise": "exercise_3",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e8",
+        "exercise": "exercise_3",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e9",
+        "exercise": "exercise_3",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e10",
+        "exercise": "exercise_3",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e11",
+        "exercise": "exercise_4",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e12",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e13",
+        "exercise": "exercise_5",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e14",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e15",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e16",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e17",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e18",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e19",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e20",
+        "exercise": "exercise_2",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e21",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e22",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e23",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e24",
+        "exercise": "exercise_1",
+        "isCompleted": false
+      },
+      {
+        "id": "s2e25",
         "exercise": "exercise_1",
         "isCompleted": false
       }

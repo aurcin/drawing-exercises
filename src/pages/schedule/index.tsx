@@ -37,7 +37,7 @@ function ShedulePage() {
     <section>
       <h1 className='text-2xl'>{schedule.title}</h1>
       <div className='flex justify-end gap-1'>
-        <p className='text-sm text-muted-foreground mt-4 mr-auto'>
+        <p className='hidden lg:block text-sm text-muted-foreground mt-4 mr-auto'>
           (from left to right{' '}
           <ArrowRight
             aria-hidden
