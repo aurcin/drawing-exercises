@@ -237,7 +237,7 @@
     "title": "Ex. 4: Potential Gesture",
     "description": "In this exercise, you'll be shown an image of a standing figure along with a short text describing an imaginary action they might take next. Your task is to draw what you think will happen based on that prompt—not what you currently see. This helps train your ability to perceive gesture as an internal force and understand movement, emotion, and physical intent.Your drawing should aim to capture the impulse behind the movement: the direction of energy, the tension, the anticipation. Don't focus on accuracy or form—just the feel of the motion. Scribble freely and quickly. You'll have 10 minutes to draw 10 images, so keep your strokes expressive and loose. This is about reaction, not perfection.",
     "time": 600,
-    "images_per_exercise": 10,
+    "images_per_exercise": 5,
     "images": [
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex4/1.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex4/2.jpg",

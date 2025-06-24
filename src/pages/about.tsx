@@ -63,12 +63,20 @@ function AboutPage() {
       <h2 className='text-2xl mt-12'>Updates</h2>
       {/* ------------------- latest ---------------------- */}
       <h3 className=' text-foreground/60 flex justify-between'>
-        <i>2025.06.22</i>
+        <i>2025.06.24</i>
         <span className='text-sm'>v 0.2.2</span>
       </h3>
       <ul className='list-disc list-inside space-y-2'>
-        <li>Added the ability to create, update and delete schedules</li>
+        <li>Added the ability to create, update, and delete schedules</li>
+        <li>Implemented Schedule 2 and added Exercises 4 and 5</li>
       </ul>
+
+      <p>
+        Now you have full control over your exercises. You can create your own
+        using image URLs from any source you like, combine them into custom
+        schedules, and more. The next feature I'm considering is the ability to
+        export, import, and save your exercises.
+      </p>
 
       {/* ------------------- second latest ---------------------- */}
       <h3 className=' text-foreground/60 flex justify-between'>
