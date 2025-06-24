@@ -13,7 +13,7 @@ function ExerciseDescription(props: ExerciseDescriptionProps) {
       {examples.length > 0 && (
         <div className='mt-4'>
           {examples.map(example => (
-            <img key={example} src={example} alt='hm' />
+            <img key={example} src={example} alt='exercise example image' />
           ))}
         </div>
       )}

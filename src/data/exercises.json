@@ -12,6 +12,7 @@
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/21.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/3.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/4.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/26.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/5.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/6.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/7.jpg",
@@ -33,7 +34,8 @@
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex3/2.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex3/3.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/24.jpg",
-      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex3/4.jpg"
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex3/4.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/25.jpg"
     ],
     "examples": [
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/examples/1.jpg"
@@ -81,6 +83,7 @@
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/132.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/20.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/36.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/153.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/64.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/11.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/97.jpg",
@@ -96,6 +99,7 @@
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/104.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/31.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/58.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/25.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/95.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/23.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/70.jpg",
@@ -121,7 +125,6 @@
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/55.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/1.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/83.jpg",
-
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/147.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/30.jpg",
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/100.jpg",
@@ -235,9 +238,50 @@
     "description": "In this exercise, you'll be shown an image of a standing figure along with a short text describing an imaginary action they might take next. Your task is to draw what you think will happen based on that prompt—not what you currently see. This helps train your ability to perceive gesture as an internal force and understand movement, emotion, and physical intent.Your drawing should aim to capture the impulse behind the movement: the direction of energy, the tension, the anticipation. Don't focus on accuracy or form—just the feel of the motion. Scribble freely and quickly. You'll have 10 minutes to draw 10 images, so keep your strokes expressive and loose. This is about reaction, not perfection.",
     "time": 600,
     "images_per_exercise": 10,
-    "images": [],
+    "images": [
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex4/1.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex4/2.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex4/3.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex4/4.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex4/5.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex4/6.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex4/7.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex4/8.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex4/9.jpg"
+    ],
     "examples": [
       "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/examples/4.jpg"
+    ]
+  },
+  "exercise_5": {
+    "id": "exercise_5",
+    "title": "Ex. 5: The Flash Pose",
+    "description": "This exercise challenges your ability to capture the entire pose in an instant. You'll view the image for just a few seconds—enough for a quick impression—then draw it from memory in a fast scribbled line. The goal is not detail but your immediate reaction: the gesture, the movement, the feeling of the pose. The action should be simple, like a raised hand or a turned head.This tool won't flash the image for you—you control the time you look. But remember, the less you stare, the more honest the exercise. Cheating just cheats your progress.",
+    "time": 600,
+    "images_per_exercise": 10,
+    "images": [
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex1/25.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/1.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/9.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/18.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/24.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/30.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/36.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/49.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/57.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/68.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/77.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/84.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/95.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/103.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/114.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/132.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/152.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/145.jpg",
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/ex2/138.jpg"
+    ],
+    "examples": [
+      "https://raw.githubusercontent.com/aurcin/exercise-images/refs/heads/master/examples/5.jpg"
     ]
   }
 }
